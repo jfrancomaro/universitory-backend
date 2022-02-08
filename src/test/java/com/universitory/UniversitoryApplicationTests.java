@@ -1,10 +1,10 @@
-package com.caet21;
+package com.universitory;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FisiRepositoryBackendApplicationTests {
+class UniversitoryApplicationTests {
 
 	@Test
 	void contextLoads() {
