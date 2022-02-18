@@ -1,13 +1,13 @@
-package com.universitory;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
-class UniversitoryApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
-}
+//package com.universitory;
+//
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
+//
+//@SpringBootTest
+//class UniversitoryApplicationTests {
+//
+//	@Test
+//	void contextLoads() {
+//	}
+//
+//}

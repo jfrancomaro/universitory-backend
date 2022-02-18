@@ -7,26 +7,22 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "department")
+@Table(name = "pas")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Department {
+public class Pas {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(length = 20, nullable = false, name = "name")
+	@Column(length = 20, nullable = false, name = "code")
 	private String code;
 
-	@Column(length = 75, nullable = false, name = "name")
+	@Column(length = 100, nullable = false, name = "name")
 	private String name;
 
 	@Column(length = 150, nullable = false, name = "description")
 	private String description;
-
-	@ManyToOne
-	@JoinColumn(name = "id_plan", nullable = false, foreignKey = @ForeignKey(name = "FK_department_studentpreference"))
-	private CoursePlan id_plan;
 }

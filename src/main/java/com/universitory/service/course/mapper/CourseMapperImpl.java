@@ -1,3 +1,4 @@
+/*
 package com.universitory.service.course.mapper;
 
 import com.universitory.model.*;
@@ -34,13 +35,13 @@ public class CourseMapperImpl implements CourseMapper{
         return studyPlan1;
     }
 
-    private Department mapInPas(final PasDTO pas) {
+    private Pas mapInPas(final PasDTO pas) {
         if(pas == null){
             return null;
         }
-        Department department1 = new Department();
-        BeanUtils.copyProperties(pas, department1);
-        return department1;
+        Pas pas1 = new Pas();
+        BeanUtils.copyProperties(pas, pas1);
+        return pas1;
     }
 
     private Cycle mapInCycle(final CycleDTO cycle) {
@@ -80,12 +81,12 @@ public class CourseMapperImpl implements CourseMapper{
         return studyPlanDTO;
     }
 
-    private PasDTO mapOutPas(final Department department) {
-        if(department == null){
+    private PasDTO mapOutPas(final Pas pas) {
+        if(pas == null){
             return null;
         }
         PasDTO pasDTO = new PasDTO();
-        BeanUtils.copyProperties(department,pasDTO);
+        BeanUtils.copyProperties(pas,pasDTO);
         return pasDTO;
     }
 
@@ -104,3 +105,4 @@ public class CourseMapperImpl implements CourseMapper{
                 .map(this::mapOut).collect(Collectors.toList());
     }
 }
+*/

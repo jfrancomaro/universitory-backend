@@ -15,7 +15,7 @@ public class StudyPlan {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_plan;
+	private Integer idStudyPlan;
 
 	@Column(length = 75, nullable = false, name = "name")
 	private String name;
@@ -24,6 +24,6 @@ public class StudyPlan {
 	private String description;
 
 	@ManyToOne
-	@JoinColumn(name = "id_course_plan", nullable = false, foreignKey = @ForeignKey(name = "FK_course_courseplan"))
-	private CoursePlan coursePlan;
+	@JoinColumn(name = "id_pas", nullable = false, foreignKey = @ForeignKey(name = "FK_studyplan_pas"))
+	private Pas idPas;
 }
