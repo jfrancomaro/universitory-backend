@@ -1,6 +1,6 @@
 package com.universitory.service.pas.mapper;
 
-import com.universitory.model.Pas;
+import com.universitory.model.Department;
 import com.universitory.request.PasDTO;
 import org.springframework.stereotype.Component;
 
@@ -12,32 +12,32 @@ import java.util.stream.Collectors;
 public class PasMapperImpl implements PasMapper{
 
     @Override
-    public Pas mapIn(final PasDTO pasDTO) {
+    public Department mapIn(final PasDTO pasDTO) {
         if(pasDTO == null){
             return null;
         }
-        Pas pas = new Pas();
-        pas.setId(pasDTO.getId());
-        pas.setName(pasDTO.getName());
-        return pas;
+        Department department = new Department();
+        department.setId(pasDTO.getId());
+        department.setName(pasDTO.getName());
+        return department;
     }
 
     @Override
-    public List<Pas> mapInList(final List<PasDTO> pasDTOList) {
+    public List<Department> mapInList(final List<PasDTO> pasDTOList) {
         return pasDTOList.stream().filter(Objects::nonNull)
                 .map(this::mapIn).collect(Collectors.toList());
     }
 
     @Override
-    public PasDTO mapOut(final Pas pas) {
+    public PasDTO mapOut(final Department department) {
         PasDTO pasDTO = new PasDTO();
-        pasDTO.setName(pas.getName());
-        pasDTO.setId(pas.getId());
+        pasDTO.setName(department.getName());
+        pasDTO.setId(department.getId());
         return pasDTO;
     }
 
     @Override
-    public List<PasDTO> mapOutList(final List<Pas> pasList) {
+    public List<PasDTO> mapOutList(final List<Department> pasList) {
         return pasList.stream().filter(Objects::nonNull)
                 .map(this::mapOut).collect(Collectors.toList());
     }

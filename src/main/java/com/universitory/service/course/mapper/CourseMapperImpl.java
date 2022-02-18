@@ -34,13 +34,13 @@ public class CourseMapperImpl implements CourseMapper{
         return studyPlan1;
     }
 
-    private Pas mapInPas(final PasDTO pas) {
+    private Department mapInPas(final PasDTO pas) {
         if(pas == null){
             return null;
         }
-        Pas pas1 = new Pas();
-        BeanUtils.copyProperties(pas,pas1);
-        return pas1;
+        Department department1 = new Department();
+        BeanUtils.copyProperties(pas, department1);
+        return department1;
     }
 
     private Cycle mapInCycle(final CycleDTO cycle) {
@@ -80,12 +80,12 @@ public class CourseMapperImpl implements CourseMapper{
         return studyPlanDTO;
     }
 
-    private PasDTO mapOutPas(final Pas pas) {
-        if(pas == null){
+    private PasDTO mapOutPas(final Department department) {
+        if(department == null){
             return null;
         }
         PasDTO pasDTO = new PasDTO();
-        BeanUtils.copyProperties(pas,pasDTO);
+        BeanUtils.copyProperties(department,pasDTO);
         return pasDTO;
     }
 

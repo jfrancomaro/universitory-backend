@@ -1,6 +1,6 @@
 package com.universitory.service.studyplan.mapper;
 
-import com.universitory.model.Pas;
+import com.universitory.model.Department;
 import com.universitory.model.StudyPlan;
 import com.universitory.request.PasDTO;
 import com.universitory.request.StudyPlanDTO;
@@ -25,14 +25,14 @@ public class StudyPlanMapperImpl implements StudyPlanMapper{
         return studyPlan;
     }
 
-    private Pas mapInPas(final PasDTO pas) {
+    private Department mapInPas(final PasDTO pas) {
         if(pas == null){
             return null;
         }
-        Pas pas1 = new Pas();
-        pas1.setName(pas.getName());
-        pas1.setId(pas.getId());
-        return pas1;
+        Department department1 = new Department();
+        department1.setName(pas.getName());
+        department1.setId(pas.getId());
+        return department1;
     }
 
     @Override
@@ -53,13 +53,13 @@ public class StudyPlanMapperImpl implements StudyPlanMapper{
         return studyPlanDTO;
     }
 
-    private PasDTO mapOutPas(final Pas pas) {
-        if(pas == null){
+    private PasDTO mapOutPas(final Department department) {
+        if(department == null){
             return null;
         }
         PasDTO pasDTO = new PasDTO();
-        pasDTO.setId(pas.getId());
-        pasDTO.setName(pas.getName());
+        pasDTO.setId(department.getId());
+        pasDTO.setName(department.getName());
         return pasDTO;
     }
 

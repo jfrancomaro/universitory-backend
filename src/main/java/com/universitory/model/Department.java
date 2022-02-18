@@ -7,15 +7,18 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "study_plan")
+@Table(name = "department")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudyPlan {
-
+public class Department {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_plan;
+	private Integer id;
+
+	@Column(length = 20, nullable = false, name = "name")
+	private String code;
 
 	@Column(length = 75, nullable = false, name = "name")
 	private String name;
@@ -24,6 +27,6 @@ public class StudyPlan {
 	private String description;
 
 	@ManyToOne
-	@JoinColumn(name = "id_course_plan", nullable = false, foreignKey = @ForeignKey(name = "FK_course_courseplan"))
-	private CoursePlan coursePlan;
+	@JoinColumn(name = "id_plan", nullable = false, foreignKey = @ForeignKey(name = "FK_department_studentpreference"))
+	private CoursePlan id_plan;
 }

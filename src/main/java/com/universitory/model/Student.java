@@ -17,19 +17,15 @@ public class Student {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(length = 50, nullable = false, name = "names")
+	@Column(length = 75, nullable = false, name = "names")
 	private String names;
 	
-	@Column(length = 50, nullable = false, name = "last_name")
+	@Column(length = 75, nullable = false, name = "last_name")
 	private String lastName;
 	
-	@Column(length = 50, nullable = false, name = "second_last_name")
+	@Column(length = 75, nullable = false, name = "second_last_name")
 	private String secondLastName;
 	
 	@Column(length = 100, nullable = false, name = "email")
 	private String email;
-
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_user", nullable = false, foreignKey = @ForeignKey(name = "FK_student_user"))
-	private User user;
 }
