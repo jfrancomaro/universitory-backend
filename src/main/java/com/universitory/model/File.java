@@ -38,7 +38,7 @@ public class File {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_student_course", nullable = false, foreignKey = @ForeignKey(name = "FK_file_studentcourse"))
-	private StudentCourse idStudentCourse;
+	private StudentCourse studentCourse;
 	
 
 }

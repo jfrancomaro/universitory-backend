@@ -29,5 +29,5 @@ public class CoursePlan {
 
     @ManyToOne
     @JoinColumn(name = "id_study_plan", nullable = false, foreignKey = @ForeignKey(name = "FK_courseplan_studyplan"))
-    private StudyPlan idStudyPlan;
+    private StudyPlan studyPlan;
 }

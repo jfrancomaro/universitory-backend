@@ -23,15 +23,15 @@ public class StudentCourse {
 
     @ManyToOne
     @JoinColumn(name = "id_course_plan", nullable = false, foreignKey = @ForeignKey(name = "FK_studentcourse_courseplan"))
-    private CoursePlan idCoursePlan;
+    private CoursePlan coursePlan;
 
     @ManyToOne
     @JoinColumn(name = "id_student", nullable = false, foreignKey = @ForeignKey(name = "FK_studentcourse_student"))
-    private Student idStudent;
+    private Student student;
 
     @ManyToOne
     @JoinColumn(name = "id_semester", nullable = false, foreignKey = @ForeignKey(name = "FK_studentcourse_semester"))
-    private Semester idSemester;
+    private Semester semester;
 
 
 }
