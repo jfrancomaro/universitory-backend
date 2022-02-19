@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -19,7 +20,7 @@ public class StudentCourse {
     private Integer idStudentCourse;
 
     @Column(nullable = false, name = "fecha_registro")
-    private Date fechaRegistro;
+    private LocalDateTime fechaRegistro;
 
     @ManyToOne
     @JoinColumn(name = "id_course_plan", nullable = false, foreignKey = @ForeignKey(name = "FK_studentcourse_courseplan"))

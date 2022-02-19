@@ -22,7 +22,7 @@ public class StudentPreference {
 
     @ManyToOne
     @JoinColumn(name = "id_pas", nullable = false, foreignKey = @ForeignKey(name = "FK_studentpreference_pas"))
-    private Pas idPas;
+    private Pas pas;
 
     @ManyToOne
     @JoinColumn(name = "id_study_plan", nullable = false, foreignKey = @ForeignKey(name = "FK_studentpreference_studyplan"))

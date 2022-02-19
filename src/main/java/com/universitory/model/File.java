@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -31,7 +32,7 @@ public class File {
 	private String url;
 
 	@Column(nullable = false, name = "fecha_registro")
-	private Date fechaRegistro;
+	private LocalDateTime fechaRegistro;
 
 	@Column(nullable = false, name = "weight")
 	private String weight;
