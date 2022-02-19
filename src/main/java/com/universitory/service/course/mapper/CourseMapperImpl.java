@@ -1,3 +1,4 @@
+/*
 package com.universitory.service.course.mapper;
 
 import com.universitory.model.*;
@@ -39,7 +40,7 @@ public class CourseMapperImpl implements CourseMapper{
             return null;
         }
         Pas pas1 = new Pas();
-        BeanUtils.copyProperties(pas,pas1);
+        BeanUtils.copyProperties(pas, pas1);
         return pas1;
     }
 
@@ -104,3 +105,4 @@ public class CourseMapperImpl implements CourseMapper{
                 .map(this::mapOut).collect(Collectors.toList());
     }
 }
+*/

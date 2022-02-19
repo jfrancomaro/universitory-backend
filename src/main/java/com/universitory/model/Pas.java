@@ -17,6 +17,12 @@ public class Pas {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(length = 45, nullable = false, name = "name")
+	@Column(length = 20, nullable = false, name = "code")
+	private String code;
+
+	@Column(length = 100, nullable = false, name = "name")
 	private String name;
+
+	@Column(length = 150, nullable = false, name = "description")
+	private String description;
 }

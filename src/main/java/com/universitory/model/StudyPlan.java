@@ -15,12 +15,15 @@ public class StudyPlan {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	
-	@Column(length = 4, nullable = false, name = "plan_name")
-	private Integer planName;
+	private Integer idStudyPlan;
+
+	@Column(length = 75, nullable = false, name = "name")
+	private String name;
+
+	@Column(length = 150, nullable = false, name = "description")
+	private String description;
 
 	@ManyToOne
-	@JoinColumn(name = "id_pas", nullable = false, foreignKey = @ForeignKey(name = "FK_study_plan_pas"))
-	private com.universitory.model.Pas pas;
+	@JoinColumn(name = "id_pas", nullable = false, foreignKey = @ForeignKey(name = "FK_studyplan_pas"))
+	private Pas pas;
 }

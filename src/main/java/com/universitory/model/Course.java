@@ -19,15 +19,10 @@ public class Course {
 	
 	@Column(length = 75, nullable = false, name = "name")
 	private String name;
-	
-	@Column(nullable = false, name = "credit")
-	private Integer credit;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_study_plan", nullable = false, foreignKey = @ForeignKey(name = "FK_course_study_plan"))
-	private StudyPlan studyPlan;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_cycle", nullable = false, foreignKey = @ForeignKey(name = "FK_course_cycle"))
-	private Cycle cycle;
+
+	@Column(length = 150, nullable = false, name = "description")
+	private String description;
+
+	@Column(length = 75, nullable = false, name = "code")
+	private String code;
 }
