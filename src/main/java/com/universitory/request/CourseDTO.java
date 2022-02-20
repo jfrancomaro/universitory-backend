@@ -16,11 +16,10 @@ public class CourseDTO {
     @NotBlank(message = "Nombre es requerido")
     private String name;
 
-    @NotBlank(message = "Cantidad de creditos es requerido")
-    private Integer credit;
+    @NotBlank(message = "Descripcion es requerido")
+    private String description;
 
-    private StudyPlanDTO studyPlan;
-
-    private CycleDTO cycle;
+    @NotBlank(message = "Codigo es requerido")
+    private String code;
 
 }

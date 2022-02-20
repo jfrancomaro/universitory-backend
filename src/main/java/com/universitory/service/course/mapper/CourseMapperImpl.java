@@ -1,4 +1,3 @@
-/*
 package com.universitory.service.course.mapper;
 
 import com.universitory.model.*;
@@ -20,37 +19,7 @@ public class CourseMapperImpl implements CourseMapper{
         }
         Course course = new Course();
         BeanUtils.copyProperties(courseDTO,course);
-        course.setCycle(mapInCycle(courseDTO.getCycle()));
-        course.setStudyPlan(mapInStudyPlan(courseDTO.getStudyPlan()));
         return course;
-    }
-
-    private StudyPlan mapInStudyPlan(final StudyPlanDTO studyPlan) {
-        if(studyPlan == null){
-            return null;
-        }
-        StudyPlan studyPlan1 = new StudyPlan();
-        BeanUtils.copyProperties(studyPlan,studyPlan1);
-        studyPlan1.setPas(mapInPas(studyPlan.getPas()));
-        return studyPlan1;
-    }
-
-    private Pas mapInPas(final PasDTO pas) {
-        if(pas == null){
-            return null;
-        }
-        Pas pas1 = new Pas();
-        BeanUtils.copyProperties(pas, pas1);
-        return pas1;
-    }
-
-    private Cycle mapInCycle(final CycleDTO cycle) {
-        if(cycle == null){
-            return null;
-        }
-        Cycle cycle1 = new Cycle();
-        BeanUtils.copyProperties(cycle,cycle1);
-        return cycle1;
     }
 
     @Override
@@ -66,37 +35,7 @@ public class CourseMapperImpl implements CourseMapper{
         }
         CourseDTO courseDTO = new CourseDTO();
         BeanUtils.copyProperties(course,courseDTO);
-        courseDTO.setCycle(mapOutCycle(course.getCycle()));
-        courseDTO.setStudyPlan(mapOutStudyPlan(course.getStudyPlan()));
         return courseDTO;
-    }
-
-    private StudyPlanDTO mapOutStudyPlan(final StudyPlan studyPlan) {
-        if(studyPlan == null){
-            return null;
-        }
-        StudyPlanDTO studyPlanDTO = new StudyPlanDTO();
-        BeanUtils.copyProperties(studyPlan,studyPlanDTO);
-        studyPlanDTO.setPas(mapOutPas(studyPlan.getPas()));
-        return studyPlanDTO;
-    }
-
-    private PasDTO mapOutPas(final Pas pas) {
-        if(pas == null){
-            return null;
-        }
-        PasDTO pasDTO = new PasDTO();
-        BeanUtils.copyProperties(pas,pasDTO);
-        return pasDTO;
-    }
-
-    private CycleDTO mapOutCycle(final Cycle cycle) {
-        if(cycle == null){
-            return null;
-        }
-        CycleDTO cycleDTO = new CycleDTO();
-        BeanUtils.copyProperties(cycle,cycleDTO);
-        return cycleDTO;
     }
 
     @Override
@@ -105,4 +44,3 @@ public class CourseMapperImpl implements CourseMapper{
                 .map(this::mapOut).collect(Collectors.toList());
     }
 }
-*/
