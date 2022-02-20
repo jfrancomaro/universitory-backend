@@ -7,13 +7,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PreferenceDTO {
+public class StudentPreferenceDTO {
 
-    private Integer id;
+    private Integer idStudentPreference;
 
-    private String name;
+    private String cycle;
 
-    private String value;
+    private PasDTO pas;
+
+    private StudyPlanDTO studyPlan;
 
     private StudentDTO student;
 }
