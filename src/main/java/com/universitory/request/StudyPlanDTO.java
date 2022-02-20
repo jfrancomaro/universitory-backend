@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 public class StudyPlanDTO {
 
 	private Integer id;
-	private Integer planName;
-	private com.universitory.request.PasDTO pas;
+	private String name;
+	private String description;
+	private PasDTO pas;
 
 }

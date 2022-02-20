@@ -10,5 +10,7 @@ import lombok.NoArgsConstructor;
 public class PasDTO {
 
     private Integer id;
+    private String code;
+    private String description;
     private String name;
 }

@@ -23,9 +23,9 @@ public class FileDTO {
 
     private String url;
 
-    private com.universitory.request.CourseDTO course;
+    private CourseDTO course;
 
-    private com.universitory.request.StudentDTO student;
+    private StudentDTO student;
     
     private Long size;
 }

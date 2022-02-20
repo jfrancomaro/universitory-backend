@@ -1,6 +1,7 @@
 package com.universitory.controller;
 
-
+import com.universitory.request.PasDTO;
+import com.universitory.service.pas.PasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +11,7 @@ import java.util.List;
 @RequestMapping("/api/v1/pas")
 public class PasRestController {
 
-	/*private final PasService service;
+	private final PasService service;
 	
 	@Autowired
     public PasRestController(PasService service) {
@@ -42,4 +43,4 @@ public class PasRestController {
 	public void delete(@PathVariable("id") Integer id) {
 		service.delete(id);
 	}
-*/}
+}

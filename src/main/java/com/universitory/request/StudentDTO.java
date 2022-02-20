@@ -31,5 +31,5 @@ public class StudentDTO {
 
 	@Valid
 	@NotNull(message="Datos de usuario es requerido")
-	private com.universitory.request.UserDTO user;
+	private UserDTO user;
 }
