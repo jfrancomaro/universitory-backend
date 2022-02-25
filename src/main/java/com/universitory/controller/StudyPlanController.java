@@ -1,8 +1,10 @@
 package com.universitory.controller;
 
 import com.universitory.request.StudyPlanDTO;
+import com.universitory.response.GenericResponse;
 import com.universitory.service.studyplan.StudyPlanService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,34 +21,40 @@ public class StudyPlanController {
         this.service = service;
     }
 
-    @CrossOrigin(origins = "*")
     @GetMapping("/pas/{id}")
-	public List<StudyPlanDTO> getAllPlanByIdEap(@PathVariable("id") Integer id) {
-		return service.findAllByIdPas(id);
+	public ResponseEntity<GenericResponse> getAllPlanByIdEap(@PathVariable("id") Integer id) {
+        GenericResponse response = service.findAllByIdPas(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
-    @GetMapping("/")
-    public List<StudyPlanDTO> findAll() {
-        return service.findAll();
+    @GetMapping
+    public ResponseEntity<GenericResponse> findAll() {
+        GenericResponse response = service.findAll();
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public StudyPlanDTO getForId(@PathVariable("id") Integer id) {
-        return service.findById(id);
+    public ResponseEntity<GenericResponse> getForId(@PathVariable("id") Integer id) {
+        GenericResponse response = service.findById(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PostMapping("/")
-    public ResponseEntity<StudyPlanDTO> save(@RequestBody StudyPlanDTO request) {
-        return ResponseEntity.ok().body(service.save(request));
+    @PostMapping
+    public ResponseEntity<GenericResponse> save(@RequestBody StudyPlanDTO request) {
+        GenericResponse response = service.save(request);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PutMapping("/")
-    public ResponseEntity<StudyPlanDTO> update(@RequestBody StudyPlanDTO request) {
-        return ResponseEntity.ok().body(service.update(request));
+    @PutMapping("/{id}")
+    public ResponseEntity<GenericResponse> update(@PathVariable("id") Integer id,
+                                                  @RequestBody StudyPlanDTO request) {
+        GenericResponse response = service.update(id, request);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Integer id) {
-        service.delete(id);
+    public ResponseEntity<GenericResponse> delete(@PathVariable("id") Integer id) {
+        GenericResponse response = service.delete(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

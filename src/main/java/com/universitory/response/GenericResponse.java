@@ -4,16 +4,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.http.HttpStatus;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class GenericResponse<T>{
+public class GenericResponse{
 
-    private T data;
+    private Object data;
     private MessageResponse message;
 
-    public T getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public void setData(Object data) {
         this.data = data;
     }
 
@@ -32,6 +32,4 @@ public class GenericResponse<T>{
     public void setStatus(HttpStatus status){
         this.message = new MessageResponse(status);
     }
-
-
 }
