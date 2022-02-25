@@ -2,8 +2,7 @@ package com.universitory.service;
 
 import com.universitory.exception.NoSuchElementFoundException;
 import com.universitory.repository.GenericRepository;
-
-import java.util.List;
+import com.universitory.response.GenericResponse;
 
 public abstract class GenericServiceImpl<E,D, I> implements GenericService<D,I> {
 
@@ -11,28 +10,52 @@ public abstract class GenericServiceImpl<E,D, I> implements GenericService<D,I> 
 	protected abstract GenericMapper<E,D> getMapper();
 
 	@Override
-	public D save(D obj) {
-		return getMapper().mapOut(getRepo().save(getMapper().mapIn(obj)));
+	public GenericResponse save(D obj) {
+
+		GenericResponse response = new GenericResponse();
+		response.setData(getMapper().mapOut(getRepo().save(getMapper().mapIn(obj))));
+		return response;
 	}
 
 	@Override
-	public D update(D obj) {
-		return this.save(obj);
+	public GenericResponse update(I id, D obj) {
+
+		GenericResponse obj2 = this.findById(id);
+
+		if (obj2 != null) {
+
+			GenericResponse response = new GenericResponse();
+			response.setData(this.save(obj));
+			return response;
+		}
+		return null;
 	}
 
 	@Override
-	public List<D> findAll() {
-		return getMapper().mapOutList(getRepo().findAll());
+	public GenericResponse findAll() {
+
+		GenericResponse response = new GenericResponse();
+		response.setData(getMapper().mapOutList(getRepo().findAll()));
+
+		return response;
 	}
 
 	@Override
-	public D findById(I id) {
-		return getMapper().mapOut(getRepo().findById(id).orElseThrow(
-				()-> new NoSuchElementFoundException("Recurso no encontrado")));
+	public GenericResponse findById(I id) {
+
+		GenericResponse response = new GenericResponse();
+		response.setData(getMapper().mapOut(getRepo().findById(id).orElseThrow(
+				()-> new NoSuchElementFoundException("Recurso no encontrado"))));
+
+		return response;
 	}
 
 	@Override
-	public void delete(I id) {
+	public GenericResponse delete(I id) {
+
+		GenericResponse response = new GenericResponse();
 		getRepo().deleteById(id);
+
+		return response;
 	}
 }

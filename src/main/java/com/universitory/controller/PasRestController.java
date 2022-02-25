@@ -1,46 +1,54 @@
 package com.universitory.controller;
 
 import com.universitory.request.PasDTO;
+import com.universitory.response.GenericResponse;
 import com.universitory.service.pas.PasService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/pas")
 public class PasRestController {
 
-	private final PasService service;
-	
-	@Autowired
+    private final PasService service;
+
+    @Autowired
     public PasRestController(PasService service) {
         this.service = service;
     }
 
-	@GetMapping("/{id}")
-	public PasDTO findById(@PathVariable("id") Integer id) {
-		return service.findById(id);
-	}
+    @GetMapping("/{id}")
+    public ResponseEntity<GenericResponse> findById(@PathVariable("id") Integer id) {
 
-	@CrossOrigin(origins = "*")
-	@GetMapping("/")
-	public List<PasDTO> findAll() {
-		return service.findAll();
-	}
+        GenericResponse response = service.findById(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 
-	@PostMapping("/")
-	public PasDTO save(@RequestBody PasDTO pas) {
-		return service.save(pas);
-	}
+    @GetMapping
+    public ResponseEntity<GenericResponse> findAll() {
 
-	@PutMapping("/")
-	public PasDTO update(@RequestBody PasDTO pas) {
-		return service.update(pas);
-	}
+        GenericResponse response = service.findAll();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 
-	@DeleteMapping("/{id}")
-	public void delete(@PathVariable("id") Integer id) {
-		service.delete(id);
-	}
+    @PostMapping
+    public ResponseEntity<GenericResponse> save(@RequestBody PasDTO pas) {
+        GenericResponse response = service.save(pas);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<GenericResponse> update(@PathVariable("id") Integer id, @RequestBody PasDTO pas) {
+        GenericResponse response = service.update(id, pas);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<GenericResponse> delete(@PathVariable("id") Integer id) {
+
+        GenericResponse response = service.delete(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }

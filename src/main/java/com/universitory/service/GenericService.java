@@ -1,12 +1,12 @@
 package com.universitory.service;
 
-import java.util.List;
+import com.universitory.response.GenericResponse;
 
 public interface GenericService<D, I> {
 
-	D save(D d);
-	D update(D d);
-	List<D> findAll();
-	D findById(I id);
-	void delete(I id);
+	GenericResponse save(D d);
+	GenericResponse update(I id, D d);
+	GenericResponse findAll();
+	GenericResponse findById(I id);
+	GenericResponse delete(I id);
 }
