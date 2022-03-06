@@ -36,10 +36,13 @@ public class File {
 
 	@Column(nullable = false, name = "weight")
 	private String weight;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "id_student_course", nullable = false, foreignKey = @ForeignKey(name = "FK_file_studentcourse"))
-	private StudentCourse studentCourse;
-	
+	@JoinColumn(name = "id_course_plan", nullable = false, foreignKey = @ForeignKey(name = "fk_course_plan"))
+	private CoursePlan coursePlan;
+
+	@ManyToOne
+	@JoinColumn(name = "id_student", nullable = false, foreignKey = @ForeignKey(name = "fk_student"))
+	private Student student;
 
 }
