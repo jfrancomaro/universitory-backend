@@ -29,7 +29,7 @@ public class StudyPlanServiceImpl extends GenericServiceImpl<StudyPlan, StudyPla
 		return service;
 	}
 
-    @Override
+
 	public GenericResponse findAllByIdPas(Integer idPas) {
 
 		GenericResponse response = new GenericResponse();

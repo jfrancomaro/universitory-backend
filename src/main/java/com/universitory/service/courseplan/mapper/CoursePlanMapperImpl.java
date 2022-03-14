@@ -29,8 +29,8 @@ public class CoursePlanMapperImpl implements CoursePlanMapper {
     public CoursePlan mapIn(CoursePlanDTO coursePlanDTO) {
         CoursePlan coursePlan = new CoursePlan();
         BeanUtils.copyProperties(coursePlanDTO, coursePlan);
-        coursePlan.setCourse(mapInCourse(coursePlanDTO.getCourseDTO()));
-        coursePlan.setStudyPlan(mapInStudyPlan(coursePlanDTO.getStudyPlanDTO()));
+        coursePlan.setCourse(mapInCourse(coursePlanDTO.getCourse()));
+        coursePlan.setStudyPlan(mapInStudyPlan(coursePlanDTO.getStudyPlan()));
         return coursePlan;
     }
 
@@ -56,8 +56,8 @@ public class CoursePlanMapperImpl implements CoursePlanMapper {
     public CoursePlanDTO mapOut(CoursePlan coursePlan) {
         CoursePlanDTO coursePlanDTO = new CoursePlanDTO();
         BeanUtils.copyProperties(coursePlan, coursePlanDTO);
-        coursePlanDTO.setCourseDTO(courseMapper.mapOut(coursePlan.getCourse()));
-        coursePlanDTO.setStudyPlanDTO(studyPlanMapper.mapOut(coursePlan.getStudyPlan()));
+        coursePlanDTO.setCourse(courseMapper.mapOut(coursePlan.getCourse()));
+        coursePlanDTO.setStudyPlan(studyPlanMapper.mapOut(coursePlan.getStudyPlan()));
         return coursePlanDTO;
     }
 

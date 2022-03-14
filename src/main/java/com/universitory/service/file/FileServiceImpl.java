@@ -2,6 +2,7 @@ package com.universitory.service.file;
 
 import com.universitory.exception.FileStorageException;
 import com.universitory.repository.FileRepository;
+import com.universitory.response.GenericResponse;
 import com.universitory.service.GenericServiceImpl;
 import com.universitory.service.GenericMapper;
 import com.universitory.model.File;
@@ -27,14 +28,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 //@Slf4j
-//@Service
+@Service
 //@Transactional
-public class FileServiceImpl {//extends GenericServiceImpl<File, FileDTO,Integer> implements FileService{
+public class FileServiceImpl extends GenericServiceImpl<File, FileDTO,Integer> implements FileService{
 
-//    @Autowired
-//    private FileRepository repository;
-//    @Autowired
-//    private FileMapper service;
+    @Autowired
+    private FileRepository repository;
+    @Autowired
+    private FileMapper service;
 
    /*@Autowired
     private StorageService service;*/
@@ -45,7 +46,7 @@ public class FileServiceImpl {//extends GenericServiceImpl<File, FileDTO,Integer
 
     //private final Path fileStorageLocation;
 
-    /*@Override
+    @Override
     protected GenericRepository<File, Integer> getRepo() {
         return repository;
     }
@@ -53,7 +54,15 @@ public class FileServiceImpl {//extends GenericServiceImpl<File, FileDTO,Integer
     @Override
     protected GenericMapper<File, FileDTO> getMapper() {
         return service;
-    }*/
+    }
+
+    public GenericResponse findAllByIdFile(Integer idFile) {
+
+        GenericResponse response = new GenericResponse();
+
+        response.setData(service.mapOutList(repository.findAllByIdFile(idFile)));
+        return response;
+    }
 
 
    /* @Autowired

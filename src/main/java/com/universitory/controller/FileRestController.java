@@ -2,6 +2,10 @@ package com.universitory.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import com.universitory.request.FileDTO;
+import com.universitory.response.GenericResponse;
+import com.universitory.service.file.FileService;
+import com.universitory.util.ObjectMapperJSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -14,17 +18,34 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-//@CrossOrigin(origins = "*")
-//@RestController
-//@RequestMapping("/api/v1/files")
+@CrossOrigin(origins = "*")
+@RestController
+@RequestMapping("/api/v1/files")
 public class FileRestController {
 
-//    @Autowired
-//    private FileService fileService;
-//
+    private final FileService service;
+
+    @Autowired
+    public FileRestController(FileService service) {
+        this.service = service;
+    }
+
+    @GetMapping
+    public ResponseEntity<GenericResponse> findAll() {
+
+        GenericResponse response = service.findAll();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<GenericResponse> getForId(@PathVariable("id") Integer id) {
+        GenericResponse response = service.findById(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 //    @PostMapping("/uploadFile")
 //    public ResponseEntity<GenericResponse<FileDTO>> uploadFile(@RequestParam("file")MultipartFile file,
-//                                                              @RequestParam("fileInfo") String fileInfo) throws JsonProcessingException{
+//                                                               @RequestParam("fileInfo") String fileInfo) throws JsonProcessingException{
 //
 //    	FileDTO fileDTO = ObjectMapperJSON.getInstance().readObjectByString(fileInfo,FileDTO.class);
 //    	GenericResponse<FileDTO> response = new GenericResponse<>();
@@ -51,6 +72,6 @@ public class FileRestController {
 //                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
 //                .body(resource);
 //    }
-//
+
 
 }
