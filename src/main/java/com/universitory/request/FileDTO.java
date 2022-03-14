@@ -1,11 +1,13 @@
 package com.universitory.request;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @NoArgsConstructor
 public class FileDTO {
 
@@ -23,7 +25,7 @@ public class FileDTO {
 
     private String url;
 
-    private CourseDTO course;
+    private CoursePlanDTO coursePlan;
 
     private StudentDTO student;
     

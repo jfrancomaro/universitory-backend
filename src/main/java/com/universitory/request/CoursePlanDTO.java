@@ -1,5 +1,6 @@
 package com.universitory.request;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,11 +9,13 @@ import javax.validation.constraints.NotBlank;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CoursePlanDTO {
 
-    private StudyPlanDTO studyPlanDTO;
+    private Integer id;
+    private StudyPlanDTO studyPlan;
     @NotBlank(message = "Creditos es obligatorio")
-    private String creditos;
-    private Integer ciclo;
-    private CourseDTO courseDTO;
+    private Integer credit;
+    private String cycle;
+    private CourseDTO course;
 }
