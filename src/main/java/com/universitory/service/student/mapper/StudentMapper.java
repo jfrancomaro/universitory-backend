@@ -6,5 +6,4 @@ import com.universitory.request.StudentDTO;
 
 public interface StudentMapper extends GenericMapper<Student,StudentDTO> {
 
-    void mapInUpdatedProfileStudent(StudentDTO studentDTO,Student student);
 }

@@ -31,7 +31,7 @@ public class StudentDTO {
 	@Email(message="Correo ingresado no es correcto")
 	private String email;
 
-	@Valid
+	/*@Valid
 	@NotNull(message="Datos de usuario es requerido")
-	private UserDTO user;
+	private UserDTO user;*/
 }
