@@ -59,8 +59,8 @@ package com.universitory.service.file.mapper;
         }
         FileDTO fileDTO = new FileDTO();
         BeanUtils.copyProperties(file,fileDTO);
-        fileDTO.setStudent(mapOutStudent(file.getStudent()));
-        fileDTO.setCoursePlan(mapOutCourse(file.getCoursePlan()));
+        //fileDTO.setStudent(mapOutStudent(file.getStudent()));
+        //fileDTO.setCoursePlan(mapOutCourse(file.getCoursePlan()));
         return fileDTO;
     }
 

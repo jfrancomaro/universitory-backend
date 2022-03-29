@@ -64,8 +64,13 @@ public class FileServiceImpl extends GenericServiceImpl<File, FileDTO,Integer> i
         return response;
     }
 
-
-   /* @Autowired
+    @Override
+    public GenericResponse findAllByIdStudent(Integer idStudent) {
+        GenericResponse response = new GenericResponse();
+        response.setData(service.mapOutList(repository.findAllByIdStudent(idStudent)));
+        return response;
+    }
+    /* @Autowired
     public FileServiceImpl(FileStorageProperties fileStorageProperties) {
         this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir())
                 .toAbsolutePath().normalize();

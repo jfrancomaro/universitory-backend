@@ -30,4 +30,7 @@ public class FileDTO {
     private StudentDTO student;
     
     private Long size;
+
+    private String extension;
+
 }

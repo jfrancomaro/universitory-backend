@@ -43,6 +43,12 @@ public class FileRestController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @GetMapping("/student/{id}")
+    public ResponseEntity<GenericResponse> getFilesByStudent(@PathVariable("id") Integer id) {
+        GenericResponse response = service.findAllByIdStudent(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 //    @PostMapping("/uploadFile")
 //    public ResponseEntity<GenericResponse<FileDTO>> uploadFile(@RequestParam("file")MultipartFile file,
 //                                                               @RequestParam("fileInfo") String fileInfo) throws JsonProcessingException{

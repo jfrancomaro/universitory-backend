@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "file")
@@ -36,6 +35,12 @@ public class File {
 
 	@Column(nullable = false, name = "weight")
 	private String weight;
+
+	@Column(nullable = false, name = "semester_name")
+	private String semesterName;
+
+	@Column(nullable = false, name = "extension")
+	private String extension;
 
 	@ManyToOne
 	@JoinColumn(name = "id_course_plan", nullable = false, foreignKey = @ForeignKey(name = "fk_course_plan"))
